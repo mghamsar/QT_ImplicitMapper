@@ -13,8 +13,8 @@ Rectangle {
         anchors.leftMargin: 0
         anchors.topMargin: 0
         anchors.fill: parent
-        onClicked: { Qt.quit()
-        }
+        //onClicked: { Qt.quit()
+        //}
     }
 
     Rectangle {
@@ -271,11 +271,10 @@ Rectangle {
 
     Button {
         id: quitButton
-        //color: "#e41a1a"
         width: 38; height: 29
-        //color: "#c61212"
         x: 972; y: 10
-        onClicked: Qt.quit();
+        onClicked: { Qt.quit()
+        }
         //text: "X"
 //        border.color: "black"
 //        border.width: 1
