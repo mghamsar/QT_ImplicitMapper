@@ -6,36 +6,25 @@ Rectangle {
     id: button
     width: 100
     height: 26
+    color: "#614ef1"
     radius: 11
 
-    gradient: Gradient {
-        GradientStop {
-            position: 0
-            color: "#02584a"
-        }
-
-        GradientStop {
-            position: 0.480
-            color: "#add3e6"
-        }
-
-        GradientStop {
-            position: 1
-            color: "#02584a"
-        }
-    }
-
     property alias buttonText: buttonText.text
+    property color buttonColor: button.color
+    //property alias buttonGradient: button.gradient
+    property alias buttonFont: buttonText.font.pixelSize
+
     signal clicked
 
             Text {
                 id: buttonText
-                color: "#ffffff"
-                styleColor: "#ffffff"
-                wrapMode: Text.WordWrap
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                wrapMode: Text.WrapAnywhere
+                text: "Hi"
+                color:"white"
+                font.pixelSize: 12
                 smooth: true
-                anchors.centerIn: button; anchors.verticalCenterOffset: -1
-                font.pixelSize: 14
             }
 
             MouseArea {

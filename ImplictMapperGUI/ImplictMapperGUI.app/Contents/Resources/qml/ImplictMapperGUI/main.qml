@@ -8,10 +8,10 @@ Rectangle {
     color: "#f1f1de"
 
     ClassifierMenu{
-    x:30
-    y:16
-    width: 150
-    height: 128
+    x:3
+    y:4
+    width: 172
+    height: 131
     anchors.verticalCenterOffset: -170
     anchors.horizontalCenterOffset: -405
 
@@ -26,6 +26,7 @@ Rectangle {
         border.width: 1
         radius: 10
         buttonText: "Capture Data"
+        buttonFont: 14
         onClicked: { Qt.quit()
         }
     }
@@ -39,6 +40,7 @@ Rectangle {
         border.width: 1
         radius: 10
         buttonText: "Learn Mapping"
+        buttonFont: 14
         onClicked: {
         }
     }
@@ -52,6 +54,7 @@ Rectangle {
         border.color: "#000000"
         border.width: 1
         buttonText: "Reset"
+        buttonFont: 14
         onClicked: {
         }
     }
@@ -60,7 +63,7 @@ Rectangle {
         id: loadData
         color: "#0bb9e8"
         width: 118; height: 40
-        x: 212; y: 10
+        x: 222; y: 15
         border.color: "black"
         border.width: 1
         radius: 10
@@ -73,7 +76,7 @@ Rectangle {
         id: saveData
         color: "#fbd035"
         width: 123; height: 40
-        x: loadData.x + loadData.width+5 ; y: 10
+        x: loadData.x + loadData.width+5 ; y: 15
         border.color: "black"
         border.width: 1
         radius: 10
@@ -143,20 +146,10 @@ Rectangle {
         width: 38; height: 29
         x: 972; y: 10
         border.width: 1
-        onClicked: { Qt.quit()
-        }
+        buttonText: "X"
+        buttonFont: 22
+        onClicked: { Qt.quit()}
 
-        Text {
-            id: quitButtonText
-            x: 28; y: 8
-            text: "X"
-            anchors.horizontalCenterOffset: 0
-            font.family: "Helvetica"
-            font.pointSize: 19
-            font.bold: true
-            color: "black"
-            anchors.horizontalCenter: quitButton.horizontalCenter
-        }
     }
 
     states: [

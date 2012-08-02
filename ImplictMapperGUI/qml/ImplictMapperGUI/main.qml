@@ -8,10 +8,10 @@ Rectangle {
     color: "#f1f1de"
 
     ClassifierMenu{
-    x:30
-    y:16
-    width: 150
-    height: 128
+    x:9
+    y:8
+    width: 172
+    height: 143
     anchors.verticalCenterOffset: -170
     anchors.horizontalCenterOffset: -405
 
@@ -19,39 +19,42 @@ Rectangle {
 
     Button {
         id: captureData
-        x: 607; y: 120
+        x: 607; y: 93
         width: 120; height: 60
         color: "#d39999"
         border.color: "black"
         border.width: 1
         radius: 10
         buttonText: "Capture Data"
+        buttonFont: 14
         onClicked: { Qt.quit()
         }
     }
 
     Button {
         id: trainClassifier
-        x: 740; y: 120
+        x: 740; y: 93
         width: 120; height: 60
         color: "#d39999"
         border.color: "black"
         border.width: 1
         radius: 10
         buttonText: "Learn Mapping"
+        buttonFont: 14
         onClicked: {
         }
     }
 
     Button {
         id: resetClassifier
-        x: 870; y: 120
+        x: 870; y: 93
         width: 120; height: 60
         color: "#d39999"
         radius: 10
         border.color: "#000000"
         border.width: 1
         buttonText: "Reset"
+        buttonFont: 14
         onClicked: {
         }
     }
@@ -60,7 +63,7 @@ Rectangle {
         id: loadData
         color: "#0bb9e8"
         width: 118; height: 40
-        x: 212; y: 10
+        x: 222; y: 15
         border.color: "black"
         border.width: 1
         radius: 10
@@ -73,7 +76,7 @@ Rectangle {
         id: saveData
         color: "#fbd035"
         width: 123; height: 40
-        x: loadData.x + loadData.width+5 ; y: 10
+        x: loadData.x + loadData.width+5 ; y: 15
         border.color: "black"
         border.width: 1
         radius: 10
@@ -143,20 +146,52 @@ Rectangle {
         width: 38; height: 29
         x: 972; y: 10
         border.width: 1
-        onClicked: { Qt.quit()
-        }
+        buttonText: "X"
+        buttonFont: 22
+        onClicked: { Qt.quit()}
 
-        Text {
-            id: quitButtonText
-            x: 28; y: 8
-            text: "X"
-            anchors.horizontalCenterOffset: 0
-            font.family: "Helvetica"
-            font.pointSize: 19
-            font.bold: true
-            color: "black"
-            anchors.horizontalCenter: quitButton.horizontalCenter
-        }
+    }
+
+    Text {
+        id: inputPlotTitle
+        x: 106
+        y: 192
+        width: 148
+        height: 15
+        text: qsTr("Input Plot")
+        font.bold: true
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: gesturePlotTitle
+        x: 398
+        y: 192
+        width: 224
+        height: 15
+        text: qsTr("Gesture Layer Plot")
+        font.pixelSize: 20
+        wrapMode: Text.WordWrap
+        font.bold: true
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: outputPlotTitle
+        x: 766
+        y: 192
+        width: 148
+        height: 15
+        text: qsTr("Output Plot")
+        font.pixelSize: 20
+        wrapMode: Text.WordWrap
+        font.bold: true
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
     }
 
     states: [

@@ -1,124 +1,81 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 
+BorderImage {
+    //source: "file"
+    id: classifierBorder
+    width: 200; height: 200
+    border.left: 5; border.top: 5
+    border.right: 5; border.bottom: 5
+
+
 Column{
     id: activeStatesColumn
-    width: 200
-    height: 400
-    spacing: 50
+    x: classifierBorder.x
+    y: classifierBorder.y
+
+    width: classifierBorder.width - classifierBorder.border.left - classifierBorder.border.right
+    height: classifierBorder.height - classifierBorder.border.bottom - classifierBorder.border.top
+    spacing: 10
 
     Button{
         id: activeButton
+        x: activeStatesColumn.x
+        y: activeStatesColumn.y
         width: activeStatesColumn.width
-
-
+        height: 50
+        buttonText: "Drag classifer here"
+        buttonColor: "blue"
+        border.color:"black"
+        border.width:1
     }
 
     Column{
         id: listCol
-        x:0
-        y:50
+        x:activeStatesColumn.x
+        y:activeStatesColumn.y + activeButton.height + 10
         width: activeStatesColumn.width
-        height: 100
+        height: activeStatesColumn.height - (activeButton.y + activeButton.height)
         smooth: true
-        //anchors.verticalCenterOffset: 0
-        //anchors.horizontalCenterOffset: 135
-        //anchors.centerIn: parent
-        spacing: 4
-
+        spacing: 2
 
         Button{
              id: svmButton
-             height: 40
+             height: 30
              width: listCol.width
              color: "lightgrey"
              radius: 5
              border.color: "black"
-
-             gradient: Gradient {
-                 GradientStop {
-                     position: 0
-                     color: "darkgrey"
-                 }
-
-                 GradientStop {
-                     position: 0.480
-                     color: "lightgrey"
-                 }
-
-                 GradientStop {
-                     position: 1
-                     color: "darkgrey"
-                 }
-             }
+             buttonText: "Neural Network"
         }
 
         Button{
-             color: "grey"
+             color: "lightgrey"
              radius: 5
              id: annButton
-             height: 40
+             height: 30
              width: listCol.width
              border.color: "black"
-
-             gradient: Gradient {
-                 GradientStop {
-                     position: 0
-                     color: "darkgrey"
-                 }
-
-                 GradientStop {
-                     position: 0.480
-                     color: "lightgrey"
-                 }
-
-                 GradientStop {
-                     position: 1
-                     color: "darkgrey"
-                 }
-             }
+             buttonText: "Support Vector Machine"
         }
 
-        Button{
-             id: curvefitButton
-             height: 40
-             width: listCol.width
-             color: "darkgrey"
-             radius: 5
-             border.color: "black"
-             onClicked: Qt.quit()
-
-             gradient: Gradient {
-                 GradientStop {
-                     position: 0
-                     color: "darkgrey"
-                 }
-
-                 GradientStop {
-                     position: 0.480
-                     color: "lightgrey"
-                 }
-
-                 GradientStop {
-                     position: 1
-                     color: "darkgrey"
-                 }
-             }
-        }
         states: [
             State {
-                name: "State1"
+                name: "annActive"
             },
             State {
-                name: "State2"
+                name: "svmActive"
             },
             State {
-                name: "State3"
-            },
-            State {
-                name: "State4"
+                name: "curvefitActive"
             }
         ]
     }
 
+}
+states: [
+    State {
+        name: "State1"
+    }
+]
 }
